@@ -107,34 +107,6 @@
             margin-bottom: 30px;
         }
 
-        /* Flexbox pro uspořádání fotky vlevo a textu vpravo */
-        .hero-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            text-align: left;
-        }
-
-        .hero-foto-wrapper {
-            flex: 0 0 300px; /* Pevná šířka fotky na desktopu */
-        }
-
-        .hero-foto {
-            width: 100%;
-            height: auto;
-            max-height: 400px;
-            object-fit: cover;
-            border-radius: 12px; /* Elegantní zaoblení hran */
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08); /* Jemný moderní stín */
-            border: 4px solid white;
-        }
-
-        .hero-text {
-            flex: 1;
-        }
-
         .highlight-box {
             background: white;
             padding: 25px;
@@ -262,34 +234,7 @@
 
         /* Responzivita pro mobily */
         @media (max-width: 768px) {
-            .hero-container {
-                flex-direction: column; /* Na mobilu hodí prvky do sloupce pod sebe */
-                gap: 20px;
-                text-align: center;
-            }
-
-            .hero-foto-wrapper {
-                flex: 0 0 auto;
-                width: 160px; /* Zmenšení profilovky na mobilu */
-                margin: 0 auto;
-            }
-
-            .hero-foto {
-                height: 160px;
-                border-radius: 50%; /* Na mobilu udělá perfektní kruh uprostřed nad H1 */
-                box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-            }
-
-            #domu h1 { 
-                font-size: 2.5rem; 
-                margin-top: 10px;
-            }
-
-            #domu .tagline { 
-                font-size: 1.2rem; 
-                margin-bottom: 20px;
-            }
-
+            #domu h1 { font-size: 2.3rem; }
             .nav-links { gap: 10px; }
             .nav-links a { font-size: 0.8rem; }
             nav { flex-direction: column; gap: 10px; text-align: center; }
@@ -314,26 +259,20 @@
 
     <!-- 1. DOMŮ (HERO SEKCE) -->
     <section id="domu">
-        <div class="hero-container">
-            <div class="hero-foto-wrapper">
-                <img src="./img/MD_WEB_MM.jpg" alt="Miloslav 'Mejla' Doležal" class="hero-foto">
-            </div>
-    
-            <div class="hero-text">
-                <h1>Masáže Mejla</h1>
-                <div class="tagline">Mějme své tělo rádi</div>
-                <div style="max-width: 800px; margin: 0 auto;">
-                    <p><strong>Masáž je příjemný a velmi účinný způsob regenerace a relaxace.</strong></p>
-                    <p>Uvolňuje fyzické i duševní napětí, zmírňuje bolesti a napětí svalů, zvyšuje pružnost těla a rozsah pohybu v kloubech, urychluje obnovu poškozených tkání, stimuluje krevní oběh a urychluje odplavování toxinů, podporuje lymfatický oběh a nervový systém, odstraňuje únavu, mírní migrény a celkově posiluje odolnost vůči nemocem…</p>
-                </div>
-    
-                <div class="highlight-box">
-                    <p><strong>Svou masáž si můžete dopřát i v pohodlí domova.</strong> Rád za Vámi přijedu a Vy si tak
-                        můžete masáž vychutnat bez nutnosti kamkoli cestovat. Vaši oblíbenou masáž si můžete dopřát prakticky všude, a to
-                        při zachování vysokého standardu prováděných služeb. Potřebné vybavení – masážní stůl, oleje atd. – přivezu s sebou… Prostěradlo a ručníky si většinou dodává své…
-                    </p>
-                </div>
-            </div>
+        <h1>Masáže Mejla</h1>
+        <div class="tagline">Mějme své tělo rádi</div>
+
+                <div style="text-align: center; margin-bottom: 35px;">
+            <img src="./img/MD_WEB_MM.jpg" alt="Miloslav 'Mejla' Doležal" style="width: 100%; max-width: 360px; height: auto; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); border: 1px solid #eee;">
+        </div>
+
+        <div style="max-width: 800px; margin: 0 auto;">
+            <p><strong>Masáž je příjemný a velmi účinný způsob regenerace a relaxace.</strong></p>
+            <p>Uvolňuje fyzické i duševní napětí, zmírňuje bolesti a napětí svalů, zvyšuje pružnost těla a rozsah pohybu v kloubech, urychluje obnovu poškozených tkání, stimuluje krevní oběh a urychluje odplavování toxinů, podporuje lymfatický oběh a nervový systém, odstraňuje únavu, mírní migrény a celkově posiluje odolnost vůči nemocem…</p>
+        </div>
+        
+        <div class="highlight-box">
+            <p><strong>Svou masáž si můžete dopřát i v pohodlí domova.</strong> Rád za Vámi přijedu a Vy si tak můžete masáž vychutnat bez nutnosti kamkoli cestovat. Vaši oblíbenou masáž si můžete dopřát prakticky všude, a to při zachování vysokého standardu prováděných služeb. Potřebné vybavení – masážní stůl, oleje atd. – přivezu s sebou… Prostěradlo a ručníky si většinou dodává své…</p>
         </div>
     </section>
 
@@ -345,7 +284,7 @@
         
         <!-- CHYTRÉ SBALENÍ TEXTU PŘES HTML DETAILS -->
         <details>
-            <summary>Číst celý příběh z filmařské i masérské minulosti ↓</summary>
+            <summary>Číst celý můj příběh ↓</summary>
             <div class="hidden-story">
                 <p>Jana Svobodová nás vedla k práci s tělem a pohybovými aktivitami mimo jiné podle uznávaného japonského tanečníka Mina Tanaky. Nedílnou součástí naší práce byly i vzájemné masáže a „manipulační cvičení“. Nestal se ze mne herec, ale tato „škola“ pro mne byla velkou školou individuálního rozvoje…</p>
                 <p>Následně jsem se 20 let věnoval audiovizuální tvorbě – výrobě filmových dokumentů, a také zdravovědních a vzdělávacích pořadů. Podílel jsem se například na produkci 40 dílů TV magazínu Trend (předchůdce dnešního „Sama doma“), následoval „Manuál pro každou maminku“, pak úspěšná DVD „Cvičení pro těhotné“ a „Cvičení po porodu“ s Magdalenou Mikulandovou – tedy opět téma „práce s tělem“…</p>
