@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masáže Mejla | Mobilní masér Jílové a okolí</title>
+    <style>
+        /* Moderní CSS Reset a Základní nastavení */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Krásný hladký posun z menu */
+            background-color: #fcfbfa;
+            color: #333;
+        }
+
+        /* Fixní Navigace */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #8c6239; /* Přírodní masérská hnědá */
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #8c6239;
+        }
+
+        /* Sekce a Rozvržení */
+        section {
+            padding: 100px 20px 60px 20px; /* Top padding kvůli fixnímu menu */
+            max-width: 1100px;
+            margin: 0 auto;
+            border-bottom: 1px solid #eee;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #8c6239;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        /* DOMŮ (Hero sekce) */
+        #domu {
+            text-align: center;
+            padding: 160px 20px 100px 20px;
+            background: linear-gradient(135deg, #f5efe6 0%, #e8dfd1 100%);
+            max-width: 100%;
+        }
+
+        #domu h1 {
+            font-size: 3.5rem;
+            color: #5c3e21;
+            margin-bottom: 10px;
+        }
+
+        #domu .tagline {
+            font-style: italic;
+            font-size: 1.5rem;
+            color: #7a6552;
+            margin-bottom: 30px;
+        }
+
+        .highlight-box {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            margin-top: 30px;
+            border-left: 5px solid #8c6239;
+            text-align: left;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* O MNĚ - Chytré skrytí dlouhého textu přes HTML <details> */
+        details {
+            margin-top: 20px;
+        }
+
+        summary {
+            font-weight: bold;
+            color: #8c6239;
+            cursor: pointer;
+            padding: 10px 0;
+            font-size: 1.1rem;
+            outline: none;
+            user-select: none;
+        }
+
+        summary:hover {
+            text-decoration: underline;
+        }
+
+        .hidden-story {
+            margin-top: 15px;
+            padding-left: 15px;
+            border-left: 2px solid #e8dfd1;
+        }
+
+        /* VYBERTE SI (Mřížka služeb) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            border: 1px solid #f0ede9;
+        }
+
+        .service-card h3 {
+            color: #5c3e21;
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+        }
+
+        /* CENÍK */
+        .price-list {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            margin-bottom: 25px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px dashed #e8dfd1;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .notice-box {
+            background-color: #fff9f2;
+            border: 1px solid #ffe3c9;
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+
+        /* KONTAKT */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 15px;
+            color: #5c3e21;
+        }
+
+        .phone-btn {
+            display: inline-block;
+            background-color: #8c6239;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+
+        .phone-btn:hover {
+            background-color: #5c3e21;
+        }
+
+        /* Patička */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #33271c;
+            color: #c4b5a7;
+            font-size: 0.9rem;
+        }
+
+        /* Responzivita pro mobily */
+        @media (max-width: 768px) {
+            #domu h1 { font-size: 2.3rem; }
+            .nav-links { gap: 10px; }
+            .nav-links a { font-size: 0.8rem; }
+            nav { flex-direction: column; gap: 10px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FIXNÍ NAVIGACE -->
+    <header>
+        <nav>
+            <div class="logo">Masáže Mejla</div>
+            <ul class="nav-links">
+                <li><a href="#domu">DOMŮ</a></li>
+                <li><a href="#o-mne">O MNĚ</a></li>
+                <li><a href="#vyberte-si">VYBERTE SI</a></li>
+                <li><a href="#cenik">CENÍK</a></li>
+                <li><a href="#kontakt">KONTAKT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 1. DOMŮ (HERO SEKCE) -->
+    <section id="domu">
+        <h1>Masáže Mejla</h1>
+        <div class="tagline">Mějme své tělo rádi</div>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <p><strong>Masáž je příjemný a velmi účinný způsob regenerace a relaxace.</strong></p>
+            <p>Uvolňuje fyzické i duševní napětí, zmírňuje bolesti a napětí svalů, zvyšuje pružnost těla a rozsah pohybu v kloubech, urychluje obnovu poškozených tkání, stimuluje krevní oběh a urychluje odplavování toxinů, podporuje lymfatický oběh a nervový systém, odstraňuje únavu, mírní migrény a celkově posiluje odolnost vůči nemocem…</p>
+        </div>
+        
+        <div class="highlight-box">
+            <p><strong>Svou masáž si můžete dopřát i v pohodlí domova.</strong> Rád za Vámi přijedu a Vy si tak můžete masáž vychutnat bez nutnosti kamkoli cestovat. Vaši oblíbenou masáž si můžete dopřát prakticky všude, a to při zachování vysokého standardu prováděných služeb. Potřebné vybavení – masážní stůl, oleje atd. – přivezu s sebou… Prostěradlo a ručníky si většinou dodává své…</p>
+        </div>
+    </section>
+
+    <!-- 2. O MNĚ -->
+    <section id="o-mne">
+        <h2>O mně</h2>
+        <p>Jsem narozen v Praze, žiji nedaleko Jílového u Prahy, znamením Blíženec (ale už tak trochu Rak), s energetickým číslem 2 (nebo také 11)…</p>
+        <p>Mým velkým masérským guru je můj nevidomý strýc Karel, který se oboru věnoval více než 40 let. Sám jsem se poprvé s masérskou praxí setkal ve svých 25 letech na Konzervatoři Jaroslava Ježka. Byla to vskutku neobvyklá škola, tedy zejména naše „dramatické oddělení“. Mými učiteli tehdy byli Jaroslav Dušek, Lenka Vychodilová, Feng-yűn Song, Pavel Burkert, prof. Ivan Vyskočil a zejména Jana Svobodová...</p>
+        
+        <!-- CHYTRÉ SBALENÍ TEXTU PŘES HTML DETAILS -->
+        <details>
+            <summary>Číst celý příběh z filmařské i masérské minulosti ↓</summary>
+            <div class="hidden-story">
+                <p>Jana Svobodová nás vedla k práci s tělem a pohybovými aktivitami mimo jiné podle uznávaného japonského tanečníka Mina Tanaky. Nedílnou součástí naší práce byly i vzájemné masáže a „manipulační cvičení“. Nestal se ze mne herec, ale tato „škola“ pro mne byla velkou školou individuálního rozvoje…</p>
+                <p>Následně jsem se 20 let věnoval audiovizuální tvorbě – výrobě filmových dokumentů, a také zdravovědních a vzdělávacích pořadů. Podílel jsem se například na produkci 40 dílů TV magazínu Trend (předchůdce dnešního „Sama doma“), následoval „Manuál pro každou maminku“, pak úspěšná DVD „Cvičení pro těhotné“ a „Cvičení po porodu“ s Magdalenou Mikulandovou – tedy opět téma „práce s tělem“…</p>
+                <p>Natočil jsem čtyři motivační filmy o mém kamarádovi na vozíku Héřovi Volfovi, což byl projekt „Cesta za snem“ s podtitulem „Křížem krážem Evropou na handbiku“ a několik dalších podobných snímků o životě s handicapem. Ty pak vyvrcholily filmem o téměř nevidomém cestovateli Tomášovi Kráčalíkovi s názvem „10% Afriky“. Následoval film o cyklistickém nadšení „Čeští indiáni dobyli Ameriku“ a pět let jsem tvořil časosběrný dokument o Michalovi Pavlíčkovi k jeho životnímu jubileu. V roce 2006 má filmařská cesta skončila… Potřeboval jsem si zejména psychicky odpočinout…</p>
+                <p>K masérské praxi jsem se vrátil absolvováním intenzivního rekvalifikačního kurzu a dalších specializovaných seminářů v EduSpa College. Sám jsem se zbavil únavy a začal znovu a naplno. Tělo, jako fungující celek, potřebuje péči a masáž je téměř nezbytným doplňkem – nejen regeneračním, ale i relaxačním.</p>
+                <p>Miluji chůzi a cyklistiku, jsem nadšeným vodákem a lezcem, vyjde-li čas, dám si badminton. Zajímám se o indiánské kultury a velkou inspirací je mi jejich přirozený soulad s přírodou a se sebou samým, který vede k trvalému zdraví a spokojenému životu…</p>
+                <p>Ctím masérskou etiku – zejména ctím soukromí klienta, obsah a průběh setkání zůstává pro ostatní tajemstvím. Vím, kam mohu „sáhnout“ a ke každému tělu přistupuji individuálně, svědomitě a s úctou…</p>
+                <p><em>Miloslav „Mejla“ Doležal, Váš mobilní masér</em></p>
+            </div>
+        </details>
+    </section>
+
+    <!-- 3. VYBERTE SI (SLUŽBY V MŘÍŽCE) -->
+    <section id="vyberte-si">
+        <h2>Vyberte si z nabídky</h2>
+        <p style="margin-bottom: 25px;">Nabízím širokou škálu procedur přizpůsobených vašim individuálním potřebám:</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Klasická regenerační masáž</h3>
+                <p>Celková masáž zad, šíje, nohou a rukou. Je vhodná na zmírnění bolestí zad a celého pohybového aparátu. Odstraňuje únavu a posiluje regeneraci.</p>
+            </div>
+            <div class="service-card">
+                <h3>Relaxační masáž</h3>
+                <p>Jemnější varianta regenerační masáže, ideální k odpočinku a uvolnění. Jemné techniky aktivizují lymfatický systém.</p>
+            </div>
+            <div class="service-card">
+                <h3>Ájurvédská masáž</h3>
+                <p>Hluboce relaxační masáž s harmonizací toku energie. Dokonale prokrví každou část těla, zklidní mysl a pomůže tělu při detoxikaci.</p>
+            </div>
+            <div class="service-card">
+                <h3>Indická antistresová masáž hlavy</h3>
+                <p>Velmi uvolňující léčivé ošetření hlavy a celé šíje. Zbavuje napětí v oblasti krku, ramen, šíje a mírní psychickou únavu.</p>
+            </div>
+            <div class="service-card">
+                <h3>Sportovní masáž</h3>
+                <p>Cílem je připravit sportovce na sportovní výkon nebo naopak po výkonu zbavit únavy a pomoci při zotavení.</p>
+            </div>
+            <div class="service-card">
+                <h3>Breussova energetická masáž páteře</h3>
+                <p>Jemná, energeticko-manuální masáž zad. Významným způsobem regeneruje meziobratlové ploténky.</p>
+            </div>
+            <div class="service-card">
+                <h3>Masáž lávovými kameny</h3>
+                <p>Teplo z kamenů pozitivně působí na svalová vlákna, zlepšuje cirkulaci krve a zrychluje metabolismus tkání.</p>
+            </div>
+            <div class="service-card">
+                <h3>Kinesiotaping</h3>
+                <p>Účinná terapie pomocí pružných samolepících pásek. Ochrání před zraněním nebo podpoří proces hojení.</p>
+            </div>
+            <div class="service-card">
+                <h3>Tělové svíce</h3>
+                <p>Alternativní metoda k urychlení léčby zánětů kloubů, karpálních tunelů, bolestí hlavy nebo celkového napětí.</p>
+            </div>
+            <div class="service-card">
+                <h3>Cvičení proti bolesti</h3>
+                <p>Individuální cvičení vedoucí k odstranění bolestí zad, šíje a hlavy. Strečink, posilování, jóga, čchi-kung…</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. CENÍK -->
+    <section id="cenik">
+        <h2>Ceník služeb</h2>
+        <p>V provozovně „Jílové“ i u Vás doma jsou ceny stejné pro všechny druhy masáží:</p>
+        
+        <div class="price-list">
+            <div class="price-row"><span>30 minut</span><span>500 Kč</span></div>
+            <div class="price-row"><span>60 minut</span><span>1 000 Kč</span></div>
+            <div class="price-row"><span>75 minut</span><span>1 200 Kč</span></div>
+            <div class="price-row"><span>90 minut</span><span>1 400 Kč</span></div>
+        </div>
+
+        <p><strong>💡 Věrnostní bonusy (slevy):</strong> od 20 procedur 10%, od 40 procedur 20%, od 60 procedur 30%, od 80 procedur 40%</p>
+        <p><strong>🧑‍ Slevy ZTP a senioři:</strong> 20% – 50% podle dohody.</p>
+        <p>🚗 <strong>Doprava:</strong> Při výjezdech k Vám domů se připočítává 8 Kč/km jednosměrné jízdy od Lešan.</p>
+
+        <div class="notice-box">
+            <p><strong>Upozornění ke stornu:</strong> Z důvodu častého rušení termínů na poslední chvíli účtuji poplatek <strong>250 Kč</strong> za zrušení masáže v den realizace. Děkuji za pochopení.</p>
+        </div>
+        
+        <p style="margin-top:20px;">🎁 <em>Své blízké můžete obdarovat dárkovým poukazem v hodnotách 1 000 Kč (60 min) nebo 1 400 Kč (90 min).</em></p>
+    </section>
+
+    <!-- 5. KONTAKT -->
+    <section id="kontakt">
+        <h2>Kontakt & Rezervace</h2>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Miloslav „Mejla“ Doležal</h3>
+                <p>📧 <strong>Email:</strong> mejladol@gmail.com</p>
+                <p>🆔 <strong>IČ:</strong> 43655408</p>
+                <p>📬 <strong>Datová schránka:</strong> rahuis6</p>
+                <p>🕒 <strong>Pracovní doba:</strong> Pracovní dny (a dle dohody i víkendy) 9:00 – 19:00</p>
+                
+                <a href="tel:+420602626474" class="phone-btn">📞 Volat: 602 626 474</a>
+            </div>
+            
+            <div class="contact-info">
+                <h3>Kde masíruji?</h3>
+                <p>📍 <strong>Nová provozovna (od 1. 4. 2026):</strong> Jílové u Prahy – Masarykovo náměstí 4 – „na dvorečku“ proti Fyzioterapii.</p>
+                <p>🚗 <strong>Mobilní masáže (u vás doma):</strong> Jílové u Prahy, Jesenice, Kamenice, Velké Popovice, Kamenný Přívoz, Týnec nad Sázavou, Benešov a okolí. Po dohodě dojíždím i do Prahy, Klánovic, Horoměřic, Říčan, Rudné či Berouna.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PATIČKA -->
+    <footer>
+        <p>&copy; Masáže Mejla. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
