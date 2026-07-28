@@ -45,6 +45,17 @@
             color: #8c6239; /* Přírodní masérská hnědá */
         }
 
+        .logo-img img {
+            width: auto;
+            height: auto;
+            max-height: 160px;
+            max-width: 90%;
+            display: inline-block;
+
+            /* TODO: pouze odhad, doladit */
+            filter: invert(41%) sepia(26%) saturate(1075%) hue-rotate(348deg) brightness(91%) contrast(89%);
+        }
+
         .nav-links {
             display: flex;
             list-style: none;
@@ -89,7 +100,7 @@
         /* DOMŮ (Hero sekce) */
         #domu {
             text-align: center;
-            padding: 160px 20px 100px 20px;
+            padding: 100px 20px 100px 20px;
             background: linear-gradient(135deg, #f5efe6 0%, #e8dfd1 100%);
             max-width: 100%;
         }
@@ -266,7 +277,10 @@
 
     <!-- 1. DOMŮ (HERO SEKCE) -->
     <section id="domu">
-        <h1>Masáže Mejla</h1>
+        <h1 class="logo-img">
+            <img src="./img/LOGO_MM_alfa.png" alt="Masáže Mejla"
+                style="height: auto; max-height: 180px; width: auto; display: inline-block;">
+        </h1>
         <div class="tagline">Mějme své tělo rádi</div>
 
         <div style="text-align: center; margin-bottom: 35px;">
@@ -366,6 +380,7 @@
             <div class="price-row"><span>75 minut</span><span>1 200 Kč</span></div>
             <div class="price-row"><span>90 minut</span><span>1 400 Kč</span></div>
 
+            <!-- Čistá poznámka k poukazům bez opakováni cen -->
             <div style="margin-top: 20px; background-color: #f7f2ec; border: 1px dashed #d8c7b5; border-radius: 6px; padding: 16px 20px; display: flex; align-items: center; gap: 15px;">
                 <span style="font-size: 1.8rem; line-height: 1;">🎁</span>
                 <div>
@@ -379,6 +394,7 @@
         <p><strong>🧑‍🦽‍➡️‍ Slevy ZTP a senioři:</strong> 20% – 50% podle dohody.</p>
         <p>🚗 <strong>Doprava:</strong> Při výjezdech k Vám domů se připočítává 10 Kč/km jednosměrné jízdy od Jílového u Prahy.</p>
 
+        <!-- UPOZORNĚNÍ KE STORNO (Hnědý infobox s pruhem nalevo) -->
         <div
             class="notice-box">
             <span style="font-size: 1.4rem; line-height: 1.2;">ℹ️</span>
